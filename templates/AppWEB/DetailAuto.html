@@ -1,0 +1,54 @@
+{% extends "AppWEB/padre.html" %}
+{% load static %}
+
+
+{% block cambio_titulo %}
+
+
+<h1>Detalles!</h1>
+
+        
+ 
+<h1 style="margin-left:30rem">Aca va el contenido de detalles de productos</h1>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{object.name}}</h5>
+            <p class="card-text">{{object.description}}</p>
+            <p class="card-text">{{object.price}}</p>
+            <a href="/products/update-product/{{object.id}}/" class="btn btn-primary">Editar</a>
+            <a href="/products/delete-product/{{object.id}}/" class="btn btn-danger">Eliminar</a>
+        </div>
+    </div>
+
+</div>
+                          
+
+
+{% endblock %}
+<!--
+{% if fformulario.errors %}
+
+<p style = "color: red;"> Estan mal los datos, revisar </p>
+
+{% endif %}
+
+{% block contenido_cambia %}
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    <table>
+
+          {{ fformulario.as_table}}
+        
+    </table>
+
+   <input type="submit", value=  "enviar">
+
+
+
+</form>
+{% endblock %}
+-->

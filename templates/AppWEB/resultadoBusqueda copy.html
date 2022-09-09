@@ -1,0 +1,20 @@
+{% extends "AppWEB/padre.html" %}
+{% load static %}
+
+{% block contenido_medio %}
+  {% if mensaje %}
+  <h2>{{ mensaje }}</h2>
+  {% else %}
+ 
+ <h1> resultado de la busqueda </h2>
+
+      {% for numero in apellido %}
+
+      <h2> {{ numero.nombre }} </h2>
+      <h2> {{ numero.apellido }} </h2>
+      <h2> {{ numero.edad }} </h2>
+
+      {% endfor %}
+      {% endif %}
+{% endblock %}
+

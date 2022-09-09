@@ -1,0 +1,43 @@
+{% extends "AppWEB/padre.html" %}
+{% load static %}
+
+
+{% block contenido_medio %}
+
+
+<h2 style="margin-left:30rem">Agrege un auto</h2>
+<form action="ListAuto" method="POST" style="margin-left:40rem;margin-top:7rem" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type="submit" , value="Enviar">
+</form>                        
+
+
+{% endblock %}
+<!--
+{% if fformulario.errors %}
+
+<p style = "color: red;"> Estan mal los datos, revisar </p>
+
+{% endif %}
+
+{% block contenido_cambia %}
+
+
+<form action="" method="POST">{% csrf_token %}
+
+    <table>
+
+          {{ fformulario.as_table}}
+        
+    </table>
+
+   <input type="submit", value=  "enviar">
+
+
+
+</form>
+{% endblock %}
+-->
