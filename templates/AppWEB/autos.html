@@ -5,12 +5,12 @@
 
 {% block contenido_medio %}
         
-<h1 style="margin-left:30rem">LSITADO DE AUTOS</h1>
+<h1 style="margin-left:30rem">LISTADO DE AUTOS</h1>
 
 {{message}}
 
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-    {% for auto in object_list %}
+    {% for auto in autos%}
 
     <div class="card" style="width: 18rem;">
        
@@ -20,6 +20,7 @@
             <h5 class="card-title">{{auto.marca}}</h5>
             <p class="card-text">{{auto.region}}</p>
             <p class="card-text">{{auto.color}}</p>
+            <p class="card-text">{{auto.id}}</p>
            <!-- <a href="/products/detail-product/{{auto.id}}/" class="btn btn-primary">Ver mas!</a>-->
         </div>
     </div>

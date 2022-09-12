@@ -21,11 +21,12 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'busqueda_persona' %}">Inicio</a>
-                <a class="btn btn-danger" href="{% url 'ListAuto' %}">Autos</a>
-                <a class="btn btn-warning" href="{% url 'create_auto' %}">Crear auto</a>
-                <a class="btn btn-success" href="{% url 'gatoss' %}">Eliminar</a>
-                <a class="btn btn-danger" href="{% url 'search_auto' %}">Buscar Auto</a>
+                   <a class="navbar-warning" href="{% url 'buscar' %}">Buscar Auto</a>
+                <a class="btn btn-danger" href="{% url 'ViewAuto' %}">Autos</a>
+                <a class="btn btn-danger" href="{% url 'CreateAuto' %}">Insertar Auto</a>
+                
+                   
+                     
                 {% block contenido_cambia %}
                 {% endblock %}
                
