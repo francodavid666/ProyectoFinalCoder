@@ -4,14 +4,13 @@
 {% block contenido_medio %}
   
  
- <h1> LiSTADO DE AUTOS </h2>
+ <h1> BUSQUEDA DE AUTOS </h2>
 
-      {% for auto in autos %}
+      <form action="{% url 'resultado' %}" method="GET">{% csrf_token %}
 
-      <li> {{ auto }} </li>
-
-     
-      {% endfor %}
+      <input type="text", name="marca", id "marca">
+      <input type="submit", value="Buscar">
+            
  
 
 

@@ -55,40 +55,19 @@ def ViewAutos(request):
     automoviles = Auto.objects.all()
     print(automoviles)
     return render (request, "AppWEB/autos.html",{"autos":automoviles})
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-def buscar (request):
- if request.GET.get("edadd"): 
-    edad1 = request.GET.get ("edadd")
-    apellidos = Persona.objects.filter(edad = edad1)
-    if len(apellidos)!=0:
-     return render (request , "AppWEB/resultadoBusqueda.html", {"apellido": apellidos})
-    else:
-        return render (request, "AppWEB/resultadoBusqueda.html", {"mensaje": "no hay apellidos"})
- else:
-     return render (request, "AppWEB/AUTOS/BuscarAuto.html", {"mensaje": "no enviaste datos"})
+                                     
+
+    
+def resultado (request):
+    
+    marca = request.GET.get ("marca")
+    modelo= Auto.objects.filter(marca = marca)
+    return render(request, "AppWeb/AUTOS/ResultadoBusqueda.html", {"modelo": modelo})
     
 
 
+def buscar (request):
+    return render (request, "AppWeb/AUTOS/BuscarAuto.html")
 
 
 
@@ -131,7 +110,7 @@ def Editar_auto (request, id):
 
 
 def busquedaAuto(request):
-    return render (request, "AppWEB/BusquedAauto.html")
+    return render (request, "AppWEB/AUTOS/BuscarAuto.html")
 
 def BUSCAR_AUTO(request):
     if request.GET.get("anio"):

@@ -8,6 +8,7 @@ urlpatterns = [
  path ("autos/", autos, name = 'autoss'),
  path ("create_auto/",  CreateAuto,name = 'CreateAuto'),
  path ("buscar_auto/", buscar, name = 'buscar'),
+ path ("resultado_busqueda/", resultado, name = 'resultado'),
  path('view-auto/', ViewAutos, name = 'ViewAuto'),
  path('editar-auto/', Editar_auto, name = 'editar_auto'),
  ]
