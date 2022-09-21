@@ -1,0 +1,20 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<div class="titulo"><h1>Register</h1></div>
+    
+
+<h1>{{ mensaje }}</h1>
+<div class = "formulario"> 
+<form class ="form" action="{% url 'registro' %}" , method = "POST">{% csrf_token %}
+
+    <table>
+         {{ form.as_table }}
+    </table>
+
+    <button type ="submit">Registrate</button>
+  
+</form>
+</div>
+{% endblock %}
