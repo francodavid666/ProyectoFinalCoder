@@ -6,7 +6,7 @@ class Usuario (models.Model):
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
-    contraseña= models.IntegerField()
+    contraseña= models.CharField(max_length=50)
     
     
     

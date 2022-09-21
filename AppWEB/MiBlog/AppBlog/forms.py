@@ -9,7 +9,7 @@ class Usuario_formulario (forms.Form):
     nombre = forms.CharField(max_length=50)
     apellido = forms.CharField(max_length=50)
     email = forms.CharField(max_length=50)
-    contraseña= forms.IntegerField()
+    contraseña= forms.CharField(max_length=50)
 
 
 
