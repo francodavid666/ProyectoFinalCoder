@@ -1,0 +1,19 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h2>Listado de usuarios</h2>
+<a href="{% url 'buscar' %}">Buscar usuario</a>
+ <br></br>
+ {% for usu in usuarios %}
+
+ <li>  
+      <h2 >{{ usu.nombre }}</h2 >
+      <h2>{{ usu.apellido }}</h2>
+      ---
+ </li>
+
+ 
+ {% endfor %}
+
+{% endblock %}

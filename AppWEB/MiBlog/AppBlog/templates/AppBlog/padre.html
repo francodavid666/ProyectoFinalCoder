@@ -14,12 +14,15 @@
 <body>
     <section class="background">
     <header class="header">
+        {% block headear %}
         <ul>
             <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
-            <li> <a href="{% url 'crear_usuario' %}">Crear Cuenta</a></li>
+            <li> <a href="{% url 'lista_usuarios' %}">Lista de usuarios</a></li>  <!--Blog-->
+            <li> <a href="{% url 'llenar_formulario' %}">Completar datos</a></li> <!--completar datos--> 
             <li> <a href="{% url 'login' %}">Iniciar sesion</a></li> <!--Proyectos--> 
-            <li> <a href="{% url 'registro' %}">Ingresar</a></li>
+            <li> <a href="{% url 'registro' %}">Registrarse</a></li>
         </ul>
+        {% endblock %}
     </header>
     <main>
 

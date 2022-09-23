@@ -1,29 +1,49 @@
-from pyexpat import model
+
 from .models import *
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
+
+
 class Usuario_formulario (forms.Form):
     nombre = forms.CharField(max_length=50)
     apellido = forms.CharField(max_length=50)
-    email = forms.CharField(max_length=50)
-    contraseña= forms.CharField(max_length=50)
+    apodo = forms.CharField(max_length=50)
+    codigo_postal = forms.CharField(max_length=50)
+    
+ 
+class Usuario_formulario_2 (forms.Form):
+    nombre = forms.CharField(max_length=50)
+    apellido = forms.CharField(max_length=50)
+    apodo = forms.CharField(max_length=50)
+    codigo_postal = forms.CharField(max_length=50)
+    
+       
+    
 
+    
 
 
 class UserRegisterForm(UserCreationForm):
-    username = forms.CharField()
-    email = forms.EmailField(label = "Modificar E-Mail")
+    username = forms.CharField(label = "Nombre de usuario")
+    email = forms.EmailField(label = "E-Mail")
     password1= forms.CharField(label='Contraseña', widget = forms.PasswordInput)
     password2= forms.CharField(label='Confirmar Contraseña', widget = forms.PasswordInput)
+        
+    '''def clean_password2(self):
     
-    
+        password1 = self.cleaned_data.get ['password1']
+        password2 = self.cleaned_data.get ['password2']
+        
+         '''
+       
+       
     class Meta: #es una clase adentro de mi register forms para modificar detalles
-        model = User
-        fields = ['username', 'email','password1', 'password2']
-        help_texts = {k:"fran" for k in fields}
+         model = User
+         fields = ['username', 'email','password1', 'password2']
+         help_texts = {k:"fran" for k in fields}
         
  
  

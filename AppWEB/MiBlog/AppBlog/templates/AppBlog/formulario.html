@@ -3,16 +3,17 @@
 
 {% block titulo %}
 <div class="titulo"><h1>Completa el formulario</h1></div>
-    
+{{ mensaje }}
 <div class = "formulario"> 
-<form class ="form" action="{% url 'usuario_creado' %}" , method = "POST">{% csrf_token %}
+<form action="{% url 'llenar_formulario' %}" , method = "POST">{% csrf_token %}
 
     <table>
          {{ formulario.as_table }}
     </table>
 
-    <input type="submit" value = "Guardar">
+    <input type="submit" ,value = "Guardar">
 
 </form>
+
 </div>
 {% endblock %}

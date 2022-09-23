@@ -1,0 +1,14 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h2>Resultado de busqueda</h2>
+ {{ nombre }}
+ <br></br>
+{% for usu in usuarios %}
+<h2>{{ usu.nombre }}</h2>
+<h2>{{ usu.apellido }}</h2>
+
+{% endfor %}
+
+{% endblock %}
