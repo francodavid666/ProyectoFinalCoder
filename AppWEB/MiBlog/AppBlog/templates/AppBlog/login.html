@@ -3,7 +3,7 @@
 
 {% block headear %}
 <ul>
-    <li> <a href="{% url 'inicio' %}">Inicio</a></li>
+   
 </ul>
 {% endblock %}
 {% block titulo %}
@@ -16,7 +16,7 @@
 
 <h1>{{ mensaje }}</h1>
 <div class = "formulario"> 
-<form class ="form" action="{% url 'login' %}" , method = "POST">{% csrf_token %}
+<form class ="form" action="{% url 'inicio' %}" , method = "POST">{% csrf_token %}
 
     <table>
          {{ form.as_table }}

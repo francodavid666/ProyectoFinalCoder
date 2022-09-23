@@ -22,9 +22,9 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-@login_required
+
 def inicio (request):
-    return render(request, "AppBlog\padre.html")
+    return render(request, "AppBlog\inicio.html")
 
 def resultado_busqueda (request):
  return render(request, "AppBlog\resultado_busqueda.html")
@@ -58,7 +58,7 @@ def formulario_usuario(request):
             return render(request,"AppBlog/error_formulario",{"mensaje":f"error en crear formulario"})
     else:
         formulario = Usuario_formulario()
-    return render (request,"AppBlog/formulario.html",{"formulario": formulario, "mensaje": "hola gil"})
+    return render (request,"AppBlog/formulario.html",{"formulario": formulario})
 
 def lista_usuarios(request):
     usuarios = USUARIO.objects.all()
@@ -71,7 +71,7 @@ def buscar ( request ):
 def resultado_busqueda (request):
      nom = request.GET.get("nombre")
      usuarios = USUARIO.objects.filter(nombre=nom)
-     return render (request,"AppBlog/resultado_busqueda.html", {'usuarios': usuarios,'nombre': "hola gil"}) 
+     return render (request,"AppBlog/resultado_busqueda.html", {'usuarios': usuarios}) 
 
 
 def editar_perfil (request):
