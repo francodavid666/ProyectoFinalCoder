@@ -1,0 +1,53 @@
+
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block header %}
+<ul>
+    <li> <a href="{% url 'inicio' %}">inicio</a></li>
+    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
+    
+</ul>
+{% endblock %}
+
+{% block headear %}
+
+
+<ul>
+   
+    
+    <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
+ 
+ 
+    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
+</ul>
+{% endblock %}
+
+
+
+{% block titulo%}
+<div class="titulo"><h1>Crear Posteo</h1></div>
+<img src= "{{ imagen }}" alt="" width="150px">
+{% endblock %}
+{% block targetas %}
+
+<section class="targetas_grid-container_post">
+    
+    <div class="sobremi_div_post">
+        
+        <form action = "{% url 'crear_post' %}", method= 'POST'>{% csrf_token %}
+
+        <table>
+        {{ form.media }}
+        {{ form }}
+        </table>
+    <div class="input_gird">
+    <input  type ='submit', value = 'Guardar'>
+    </div>
+</div>
+
+</form>
+
+
+{% endblock %}

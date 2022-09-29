@@ -4,7 +4,14 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+#CKEDITOR
+from django.forms import ModelForm
 
+class formulario_modelo (ModelForm):
+    class  Meta:
+        model = PostModel
+        fields = '__all__'
+    
 
 
 class Usuario_formulario (forms.Form):
@@ -61,3 +68,6 @@ class UserEditForm (UserCreationForm):
         fields = ['email','password1', 'password2', 'first_name','last_name']
         help_texts = {k:"fran" for k in fields}
         
+        
+class Avatar_formulario(forms.Form):
+    imagen = forms.ImageField(label="Imagen")

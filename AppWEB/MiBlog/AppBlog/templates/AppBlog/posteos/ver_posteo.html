@@ -1,0 +1,52 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+{% block headear %}
+ 
+<img src= "{{ imagen }}" alt="">
+<ul>
+    <li> <a href="{% url 'inicio' %}">Inicio</a></li>
+
+    <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
+    <li> </li>  <!--Blog-->
+    <li> <a href="{% url 'llenar_formulario' %}">Modificar Posteos</a></li>
+   
+    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
+</ul>
+{% endblock %}
+
+
+{% block titulo %}
+<div class="titulo"><h2>Posteo</h2></div>
+{% endblock %}
+
+
+
+
+
+
+
+{% block targetas %}
+
+
+
+
+      <form action="{% url 'resultado_busqueda_posteo' %}" , method = "GET">{% csrf_token %}
+        <section class="posteo_grid-container">
+   
+ 
+      {% for post in posteo %}
+      <div class="partes_flex-contaiter">
+      
+              {{ post.imagen|safe }}
+          <h2>titulo: {{ post.titulo|safe }}</h2>
+          <h3>Descripcion:{{ post.descripcion|safe }}</h3>
+          <h4>Orden: {{ post.orden|safe }}</h4>
+         <h2>Contenido:{{ post.contenido|safe }}</h2>
+         <a href="{% url 'ver_posteo' post.id %}">Eliminar Posteos</a>
+      </div>
+ 
+      {% endfor %}
+    
+</section>
+
+{% endblock %}

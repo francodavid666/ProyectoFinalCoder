@@ -1,12 +1,21 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
-
 {% block headear %}
 
+
 <ul>
-    <li> <a href="{% url 'llenar_formulario' %}">Completar datos</a></li>
-    <li> <a href="{% url 'lista_usuarios' %}">Lista de usuarios</a></li>
+ 
+    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>  <!--Blog-->
+    <li> <a href="{% url 'llenar_formulario' %}">Datos</a></li>
+    <li> <a href="{% url 'lista_usuarios' %}">Ver Datos</a></li>
+    <li> <a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
     <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
 </ul>
+{% endblock %}
+
+
+{% block targetas %}
+
+
 {% endblock %}

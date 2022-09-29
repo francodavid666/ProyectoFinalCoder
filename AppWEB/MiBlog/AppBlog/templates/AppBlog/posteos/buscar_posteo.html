@@ -1,0 +1,16 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<h2>Listado de posteos</h2>
+
+<form action="{% url 'resultado_busqueda_posteo' %}" , method = "GET">{% csrf_token %}
+     
+         <p> <input type ="text", name ="titulo", id="titulo"> </p>
+      
+ 
+     <input type="submit" value = "Buscar">
+ 
+ </form>
+
+{% endblock %}

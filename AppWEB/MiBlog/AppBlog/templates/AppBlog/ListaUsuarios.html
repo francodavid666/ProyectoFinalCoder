@@ -1,19 +1,35 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
+{% block headear %}
+
+
+<ul>
+  
+    <li> <a href="{% url 'inicio' %}">Inicio</a></li> 
+    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>    <!--Blog-->
+    <li> <a href="{% url 'lista_usuarios' %}">Datos</a></li>
+    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
+</ul>
+{% endblock %}
+
 {% block titulo %}
+<img src= "{{ imagen }}" alt="" width="150px">
 <h2>Listado de usuarios</h2>
 <a href="{% url 'buscar' %}">Buscar usuario</a>
+
  <br></br>
  {% for usu in usuarios %}
 
- <li>  
+ 
       <h2 >{{ usu.nombre }}</h2 >
       <h2>{{ usu.apellido }}</h2>
       ---
- </li>
-
+ 
+ <a href="{% url 'editar_formulario' usu.id %}">Editar formulario</a>
+ <a href="{% url 'eliminar_formulario' %}">Eliminar Formulario</a>
  
  {% endfor %}
 
 {% endblock %}
+

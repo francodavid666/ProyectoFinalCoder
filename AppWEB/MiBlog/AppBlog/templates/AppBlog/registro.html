@@ -1,9 +1,14 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
+{% block headear %}
+
+{% endblock %}
+
+
 {% block titulo %}
 <div class="titulo"><h1>Register</h1></div>
-    
+<a href="{% url 'login' %}"> Login </a>
 
 <h1>{{ mensaje }}</h1>
 <div class = "formulario"> 

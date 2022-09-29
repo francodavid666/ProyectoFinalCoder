@@ -1,0 +1,25 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<div class="titulo"><h1>Completa el formulario</h1></div>
+{{ mensaje }}
+
+{% endblock %}
+
+{% block targetas %}
+<div class = "formulario"> 
+
+<form action="{% url 'editar_posteo' id %}" , method = "POST">{% csrf_token %}
+
+    <table>
+        {{ form.media }}
+        {{ form }}
+    </table>
+
+    <input type="submit" ,value = "Guardar">
+
+</form>
+
+</div>
+{% endblock %}

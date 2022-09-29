@@ -1,8 +1,22 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
+{% block headear %}
+
+
+<ul>
+   
+    
+    <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
+    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>  <!--Blog-->
+    <li> <a href="{% url 'llenar_formulario' %}">Datos</a></li>
+    <li> <a href="{% url 'lista_usuarios' %}">Ver Datos</a></li>
+    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
+</ul>
+{% endblock %}
+
 {% block titulo %}
-<div class="titulo"><h1>Edicion de perfil de {{ usuario }}</h1></div>
+<div class="titulo"><h1>Usuario: {{ usuario }}</h1></div>
     
 
 <h1>{{ mensaje }}</h1>

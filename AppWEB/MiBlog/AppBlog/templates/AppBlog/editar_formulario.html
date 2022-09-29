@@ -1,0 +1,20 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<div class="titulo"><h1>Editanco el formulario de {{ nombre_usuario }}</h1></div>
+    
+
+<h1>{{ mensaje }}</h1>
+<div class = "formulario"> 
+<form class ="form" action="{% url 'editar_formulario' id %}" , method = "POST">{% csrf_token %}
+
+    <table>
+         {{ form.as_table }}
+    </table>
+
+    <button type ="submit">Guardar cambios</button>
+  
+</form>
+</div>
+{% endblock %}

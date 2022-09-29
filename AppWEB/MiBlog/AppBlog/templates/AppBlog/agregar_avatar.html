@@ -1,0 +1,20 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+<div class="titulo"><h1>Agregando Avatar de {{ usuario }}</h1></div>
+    
+
+<h1>Agregar Avatar</h1>
+<div class = "formulario"> 
+<form class ="form" action="{% url 'agregar_avatar' %}" , method = "POST" enctype = 'multipart/form-data'>{% csrf_token %}
+
+    <table>
+         {{ form.as_table }}
+    </table>
+
+    <button type ="submit">Agregar avatar</button>
+  
+</form>
+</div>
+{% endblock %}

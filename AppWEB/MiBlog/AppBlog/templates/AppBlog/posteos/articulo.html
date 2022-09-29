@@ -1,0 +1,15 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+ {% for arti in articulo %}
+
+<h1>{{ arti.titulo|safe }}</h1
+<h1>{{ arti.descripcion|safe  }}</h1
+<h1>{{ arti.imagen|safe }}</h1>
+
+<div class ='body-upload'>
+    {{ arti.content_upload|safe }}
+</div>
+{% endfor %}
+{% endblock %}

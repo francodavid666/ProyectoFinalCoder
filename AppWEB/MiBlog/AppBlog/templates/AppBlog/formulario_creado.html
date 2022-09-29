@@ -1,11 +1,23 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
+
+{% block headear %}
+
+
+<ul>
+  
+    <li> <a href="{% url 'inicio' %}">Inicio</a></li> 
+    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>  <!--Blog-->
+    <li> <a href="{% url 'lista_usuarios' %}">Datos</a></li>
+    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
+</ul>
+{% endblock %}
+
 {% block titulo %}
 <div class="titulo"><h1>Formulario creado</h1></div>
 
 {{ mensaje }}
     
-
-
 {% endblock %}
+

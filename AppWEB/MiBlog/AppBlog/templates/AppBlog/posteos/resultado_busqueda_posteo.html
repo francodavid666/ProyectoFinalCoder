@@ -1,0 +1,36 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block titulo %}
+
+<h2>Resultado de busqueda</h2>
+
+<a href="{% url 'buscar_posteo' %}">Volver a buscar</a>
+
+{% endblock %}
+
+{% block targetas %}
+
+ 
+ <section class="targetas_grid-container">
+            {% for titu in posteos %}
+
+    <div class="sobremi_div">
+        <h2>Titulo: {{ titu.titulo|safe }}</h2>
+    </div>
+
+    <div class="targetas_flex-container">
+    <div class="targetas">
+
+         <a href="{% url 'ver_posteo' titu.titulo %}"> <h2>{{ titu.imagen|safe }}</h2> </a>
+        <h4>{{ titu.titulo|safe }}</h4>
+        <p>{{ titu.descripcion|safe }}</p>
+       <br></br>
+       <br></br>
+        <a href="{% url 'eliminar_post_individual' titu.id %}">eliminar post</a>
+    </div>
+
+</div>
+                {% endfor %}
+</section>
+{% endblock %}

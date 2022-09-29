@@ -14,8 +14,10 @@
 <body>
     <section class="background">
     <header class="header">
+   
         {% block headear %}
         <ul>
+           
             <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
             <li> <a href="{% url 'lista_usuarios' %}">Lista de usuarios</a></li>  <!--Blog-->
             <li> <a href="{% url 'llenar_formulario' %}">Completar datos</a></li> <!--completar datos--> 
@@ -28,21 +30,24 @@
 
             <div class="grid_main-container">
                 <section class="container_section_1">
+                  
                  <!--  <div class="nombre"><h3>Franco David Gomez</h3></div>-->
                  {% block titulo %}
                   <div class="titulo"><h1>Prosophy</h1></div>
+                  <img src= "{{ imagen }}" alt="" width="150px">
                   {% endblock %}
                  <!-- <div class="anio"><h3>2022</h3></div>-->
-     
+               
              </div>
             </section>                        
-     
+          
  
        <section class="container_section_2">
 
          
 
         </section>
+        {% block targetas %}
         <section class="targetas_grid-container">
 
             <div class="sobremi_div">
@@ -85,7 +90,7 @@
 
         </div> 
     </section>
-            
+    {% endblock %}
         
     </section>
 

@@ -1,0 +1,32 @@
+<!--{% extends "AppBlog/padre.html" %}-->
+{% load static %}
+
+
+
+{% block titulo %}
+<script type = "text/javascript" src = "{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type = "text/javascript" src = "{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+
+
+<h1>{{ articulo.titulo }} </h1>
+
+<hr>
+
+{{ articulo.content|safe }}
+
+<hr>
+
+{{ articulo.conten_upload|safe }}
+
+
+<form method ="POST">
+
+{% csrf_token %} 
+
+{{ form.as_p }}
+
+<button>Salvar cambios</button>
+
+</form>
+
+{% endblock %}

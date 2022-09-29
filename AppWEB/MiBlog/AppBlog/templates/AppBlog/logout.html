@@ -1,6 +1,22 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
+
+{% block headear %}
+
+
+<ul>
+  
+    <li> <a href="{% url 'login' %}">Login</a></li>
+    <li> <a href="{% url 'registro' %}">Registrate</a></li>
+     <!--Blog-->
+   
+  
+</ul>
+{% endblock %}
+
+
+
 {% block titulo %}
 <div class="titulo"><h1>Te deslogueaste correctamente</h1></div>
     
