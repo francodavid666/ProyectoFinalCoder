@@ -4,31 +4,94 @@
 {% block headear %}
 
 
-<ul>
-   
-    
-    <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
-    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>  <!--Blog-->
-    <li> <a href="{% url 'llenar_formulario' %}">Datos</a></li>
-    <li> <a href="{% url 'lista_usuarios' %}">Ver Datos</a></li>
-    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
-</ul>
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_usuarios' %}">Datos personales</a></li>
+                <li> <a href="{% url 'editar_perfil' %}">Datos de cuenta</a></li>
+                <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+                <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+                <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>>
 {% endblock %}
 
 {% block titulo %}
-<div class="titulo"><h1>Usuario: {{ usuario }}</h1></div>
+    <br></br>
+    <br></br>
+    <br></br>
     
+<div class="titulo"><h1>{{ usuario }}</h1></div>
+<br></br>
+
 
 <h1>{{ mensaje }}</h1>
+
 <div class = "formulario"> 
 <form class ="form" action="{% url 'editar_perfil' %}" , method = "POST">{% csrf_token %}
+    
+    <div class="form-group">
+        <label>Nombre:</label>
+        {{ form.first_name }}
+    </div>
+    <div class="form-group">
+        <label>Apellido:</label>
+        {{ form.last_name }}
+    </div>
+    <div class="form-group">
+        <label><p>Imail:</p></label>
+        {{ form.email }}
+    </div>
+    <div class="form-group">
+        <label>Contraseña:</label>
+        {{ form.password1 }}
+    </div>
+    <div class="form-group">
+        <label><p>Verifique contraseña:</p></label>
+        {{ form.password2 }}
+    </div>
 
-    <table>
-         {{ form.as_table }}
-    </table>
 
-    <button type ="submit">Guardar cambios</button>
+        <!--{{ form.as_table }}
+        {{ form.username_table }}
+   
+    <br></br>
+   
+        {{ form_2.as_table }}-->
+    <br></br>
+
+    <button type ="submit" class="boton">Guardar cambios</button>
   
 </form>
 </div>
+<br></br>
+
+<div class = "formulario"> 
+        
+        <li> <a href="{% url 'formulario_usuario' %}">Agregar datos personales</a></li>
+
+    </div>
+
+
+    
 {% endblock %}

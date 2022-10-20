@@ -13,40 +13,39 @@
 </head>
 <body>
     <section class="background">
+      
     <header class="header">
-   
-        {% block headear %}
-        <ul>
+       
+          
+                             {% block headear %}
+                            
+                             <img src= "{{ imagen }}" alt="" width="100px">
+                            
+                                <div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+                 
+                <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
+                <li> <a href="{% url 'registro' %}">Registrarse</a></li>
            
-            <li> <a href="{% url 'inicio' %}">Inicio</a></li>  <!--Blog-->
-            <li> <a href="{% url 'lista_usuarios' %}">Lista de usuarios</a></li>  <!--Blog-->
-            <li> <a href="{% url 'llenar_formulario' %}">Completar datos</a></li> <!--completar datos--> 
-            <li> <a href="{% url 'login' %}">Iniciar sesion</a></li> <!--Proyectos--> 
-            <li> <a href="{% url 'registro' %}">Registrarse</a></li>
-        </ul>
-        {% endblock %}
+         {% endblock %}
+        
     </header>
     <main>
 
             <div class="grid_main-container">
                 <section class="container_section_1">
                   
-                 <!--  <div class="nombre"><h3>Franco David Gomez</h3></div>-->
-                 {% block titulo %}
-                  <div class="titulo"><h1>Prosophy</h1></div>
-                  <img src= "{{ imagen }}" alt="" width="150px">
-                  {% endblock %}
-                 <!-- <div class="anio"><h3>2022</h3></div>-->
+                    {% block titulo %}
+
+                    {% endblock %}
                
              </div>
-            </section>                        
+                                   
           
- 
-       <section class="container_section_2">
-
-         
-
-        </section>
+             <br></br>
+             <br></br>
+             <br></br>
+             <br></br>
+    
         {% block targetas %}
         <section class="targetas_grid-container">
 
@@ -58,38 +57,38 @@
             </div>
              
           <div class="targetas_flex-container">
-            <div class="targetas">
-                
-                <img src="{% static 'AppBlog/img\js_logo.png' %}" alt="">
-                <h4>Historia de JavaScript</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <div class="targetas">
+                     <img src="{% static 'AppBlog/img\js_logo.png' %}" alt="">
+                     <h4>Historia de JavaScript</h4>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Temporibus, saepe voluptates!</p>
                      <a href="">Leer mas</a>
-            </div>
+                </div>
           
 
           
-            <div class="targetas">
-                <img src="{% static 'AppBlog/img\python_logo.png' %}" alt="">
-                <h4>Historia de Python</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <div class="targetas">
+                     <img src="{% static 'AppBlog/img\python_logo.png' %}" alt="">
+                     <h4>Historia de Python</h4>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Temporibus, saepe voluptates!</p>
                      <a href="">Leer mas</a>
-            </div>
+                </div>
 
          
 
          
-            <div class="targetas">
-                <img src="{% static 'AppBlog/img\david_aestetic.png' %}" alt="">
-                <h4>El amor segun los griegos</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <div class="targetas">
+                     <img src="{% static 'AppBlog/img\david_aestetic.png' %}" alt="">
+                     <h4>El amor segun los griegos</h4>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                      Temporibus, saepe voluptates!</p>
                      <a href="">Leer mas</a>
-            </div>
+                </div>
 
-        </div> 
-    </section>
+            </div> 
+        </section>
+</section> 
     {% endblock %}
         
     </section>

@@ -1,22 +1,54 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
-{% block headear %}
- 
-<img src= "{{ imagen }}" alt="">
-<ul>
-    <li> <a href="{% url 'inicio' %}">Inicio</a></li>
 
-    <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
-    <li> </li>  <!--Blog-->
-    <li> <a href="{% url 'llenar_formulario' %}">Modificar Posteos</a></li>
-   
-    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
-</ul>
+
+
+
+
+
+
+{% block headear %}
+
+
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_usuarios' %}">Datos personales</a></li>
+                <li> <a href="{% url 'editar_perfil' %}">Datos de cuenta</a></li>
+                <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+                <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+                <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>>
 {% endblock %}
 
 
 {% block titulo %}
+
 <div class="titulo"><h2>Posteo</h2></div>
+
+<br></br>
+
 {% endblock %}
 
 
@@ -38,11 +70,12 @@
       <div class="partes_flex-contaiter">
       
               {{ post.imagen|safe }}
-          <h2>titulo: {{ post.titulo|safe }}</h2>
-          <h3>Descripcion:{{ post.descripcion|safe }}</h3>
+          <h2>{{ post.titulo|safe }}</h2>
+          <h3>{{ post.descripcion|safe }}</h3>
           <h4>Orden: {{ post.orden|safe }}</h4>
          <h2>Contenido:{{ post.contenido|safe }}</h2>
          <a href="{% url 'ver_posteo' post.id %}">Eliminar Posteos</a>
+         <a href="{% url 'editar_posteo' post.id %}">Modificar Posteo</a>
       </div>
  
       {% endfor %}

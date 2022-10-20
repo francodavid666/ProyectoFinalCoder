@@ -3,22 +3,42 @@
 {% load static %}
 
 {% block headear %}
-
-
-<ul>
-  
-    <li> <a href="{% url 'inicio' %}">Inicio</a></li>
-    <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
-    <li> <a href="{% url 'buscar_posteo' %}">Buscar Posteo</a></li>  <!--Blog-->
-   
-  
-</ul>
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_usuarios' %}">Tus datos</a></li>
+                <li> <a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
+                <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+                <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+                <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>> 
 {% endblock %}
 
 
 {% block titulo %}
-<div class="titulo"> <h2>Tus Posteos</h2></div>
-<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"> <p>Tus Posteos</p></div>
+
 {% endblock %}
 
 
@@ -34,16 +54,21 @@
  
 <div class="targetas_flex-container">
   {% for post in posteos %} 
+  {% if post.owner == user.id %}
   <div class="targetas">
-    
+      
+  
       <a href="{% url 'ver_posteo' post.titulo %}">  <h2>{{ post.imagen|safe }}</h2></a>
+      {{ post.imagen }}
       <h4>{{ post.titulo|safe }}</h4>
      
      <br></br>
      
      <br>  <a href="{% url 'eliminar_post_individual' post.id %}">Eliminar Posteo</a>      </br>
       <a href="{% url 'editar_posteo' post.id %}">Modificar Posteo</a>
+  
   </div>
+  {% endif %}  
   {% endfor %}    
 </div> 
 

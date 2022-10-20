@@ -2,28 +2,37 @@
 {% load static %}
 
 {% block headear %}
-<ul>
+
+    <div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
    
-</ul>
 {% endblock %}
+
+
 {% block titulo %}
-<div class="titulo"><h1>Login</h1></div>
+<div class="titulo_login"><h1>Login</h1></div>
     
-<h2>Formulario ingreso</h2>
-<br></br>
 <h3>Si no tiene cuenta, entonces</h3>
 <a href="{% url 'registro' %}">Crear cuenta</a>
+ 
+ {% for message in messages %}
+ <br></br>
+    {{ message }}
+    {% endfor %}
 
 <h1>{{ mensaje }}</h1>
+
 <div class = "formulario"> 
-<form class ="form" action="{% url 'inicio' %}" , method = "POST">{% csrf_token %}
+    <form class ="form" action="{% url 'login' %}" , method = "POST">{% csrf_token %}
 
-    <table>
-         {{ form.as_table }}
-    </table>
+     <table>
+             {{ form.as_table }}
+     </table>
 
-    <input type="submit" value = "Guardar">
+     <input type="submit" value = "Ingresar">
   
-</form>
+    </form>
 </div>
+{% endblock %}
+
+{% block targetas %}
 {% endblock %}

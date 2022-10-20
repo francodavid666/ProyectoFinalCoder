@@ -2,28 +2,71 @@
 {% load static %}
 
 {% block headear %}
-<ul>
-    <li> <a href="{% url 'inicio' %}">inicio</a></li>  <!--Blog-->
-   
-    <li> <a href="{% url 'llenar_formulario' %}">Borras tus datos</a></li>
-    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
-</ul>
+
+
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_usuarios' %}">Tus datos</a></li>
+                <li> <a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
+                <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+                <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>>
 {% endblock %}
 
 
 {% block titulo %}
-<div class="titulo"><h1>Completa el formulario</h1></div>
-{{ mensaje }}
 <div class = "formulario"> 
-<form action="{% url 'llenar_formulario' %}" , method = "POST">{% csrf_token %}
+    <form class ="form" action="{% url 'formulario_usuario' %}" , method = "POST">{% csrf_token %}
+    
+    
+        <div class="form-group">
+            <label>Pais:</label>
+            {{ formulario.pais }}
+        </div>
+        <div class="form-group">
+            <label><p>Localidad:</p></label>
+            {{ formulario.localidad }}
+        </div>
+        <div class="form-group">
+            <label><p>Codigo postal:</p></label>
+            {{ formulario.codigo_postal }}
+        </div>
+    
+    
+            <!--{{ form.as_table }}
+            {{ form.username_table }}
+       
+        <br></br>
+       
+            {{ form_2.as_table }}-->
+        <br></br>
+    
+        <button type ="submit" class="boton">Guardar cambios</button>
+       
 
-    <table>
-         {{ formulario.as_table }}
-    </table>
-
-    <input type="submit" ,value = "Guardar">
-
-</form>
-
-</div>
+      
+    </form>
+    </div>
 {% endblock %}

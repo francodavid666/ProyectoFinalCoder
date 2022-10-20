@@ -1,0 +1,91 @@
+{% extends "AppBlog/padre.html" %}
+{% load static %}
+
+{% block headear %}
+
+
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_usuarios' %}">Tus datos</a></li>
+                <li> <a href="{% url 'editar_perfil' %}">Editar perfil</a></li>
+                <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+                <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>>
+{% endblock %}
+
+{% block titulo %}
+    <br></br>
+    <br></br>
+    <br></br>
+    
+<div class="titulo"><h1>{{ usuario }}</h1></div>
+<br></br>
+
+
+<h1>{{ mensaje }}</h1>
+
+
+
+{{ user.id }}<br></br>
+{{ usuario.usuario }}
+{{ mensaje }}
+<div class = "formulario"> 
+    <form class ="form" action="{% url 'formulario_usuario' %}" , method = "POST">{% csrf_token %}
+        <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            {{ usuario.pais }}
+        </div>
+        <div class="form-group">
+            <label>Edad:</label>
+            {{ user.id }}
+        </div>
+        <div class="form-group">
+            <label>Pais:</label>
+            {{ formulario.pais }}
+        </div>
+        <div class="form-group">
+            <label><p>Localidad:</p></label>
+            {{ formulario.localidad }}
+        </div>
+        <div class="form-group">
+            <label><p>Codigo spostal:</p></label>
+            {{ formulario.codigo_postal }}
+        </div>
+    
+    
+    
+            <!--{{ form.as_table }}
+            {{ form.username_table }}
+       
+        <br></br>
+       
+            {{ form_2.as_table }}-->
+        <br></br>
+    
+        <button type ="submit" class="boton">Guardar cambios</button>
+        <a href="{% url 'editar_formulario' usu.id %}">Editar formulario</a>
+    </form>
+    </div>
+{% endblock %}

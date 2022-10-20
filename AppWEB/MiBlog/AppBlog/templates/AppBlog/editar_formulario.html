@@ -1,14 +1,51 @@
 {% extends "AppBlog/padre.html" %}
 {% load static %}
 
+{% block header %}
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+              <li> <a href="{% url 'lista_usuarios' %}">Datos personales</a></li>
+              <li> <a href="{% url 'editar_perfil' %}">Datos de cuenta</a></li>
+              <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+              <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+                <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>
+{% endblock %}
 {% block titulo %}
-<div class="titulo"><h1>Editanco el formulario de {{ nombre_usuario }}</h1></div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<div class="titulo"><h1>Editanco el formulario de {{ user.username }}</h1></div>
     
 
 <h1>{{ mensaje }}</h1>
 <div class = "formulario"> 
 <form class ="form" action="{% url 'editar_formulario' id %}" , method = "POST">{% csrf_token %}
-
+    {{ mensaje }}
     <table>
          {{ form.as_table }}
     </table>

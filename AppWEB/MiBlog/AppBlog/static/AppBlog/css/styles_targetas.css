@@ -22,31 +22,97 @@ body{
 /* ----- HEADER ---- */
 .header{
     display: grid;
-    height: 50px;
+    grid-template-rows: repeat(1,60px);
+    grid-template-columns:  repeat(7,1fr);
+}
+.titulo{
+    display: grid;
+    grid-column: 4/5;
+    grid-row: 1/2;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
 }
 
-.header ul li a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    margin: 0 30px;
-    text-align: center;
+
+.titulo h1 a{
+    font-size: 50px;
+    color: red;
 }
 
 .header ul {
-    display: flex;
     justify-content: flex-end;
-    justify-items:center;
-    list-style: none;
-    height: 100%;
+    align-items: flex-start;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+
+  
 }
 
-.header ul li{
+.header  a {
     display: flex;
-    justify-items:center;
-    height: 100%;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 0 20px 0 20px;
     text-align: center;
-    font-size: 20px;
+  
 }
+
+nav{
+    display: flex;
+    grid-column: 5/8;
+    grid-row: 0/1;
+    justify-content: flex-end;
+    padding-top: 10px;
+   
+}
+
+.menu_horizontal{
+    list-style: none;
+    display: flex;
+}
+.menu_horizontal li{
+    position: relative;
+  
+}
+
+.menu_horizontal >li >a{
+    color: white;
+    text-decoration: none;
+  
+}
+
+
+.menu_horizontal li:hover .menu_vertical{
+    display: block;
+}
+.menu_vertical{
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+   
+   
+    
+   }
+
+.menu_horizontal li a:hover {
+    color: red;
+    transition: all 1s;
+   
+}
+
+.menu_vertical li a {
+    display: block;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+    background-color: red;
+}
+
 
 /*-----MAIN-----*/
 
@@ -57,8 +123,8 @@ body{
     background-position:center top;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(3, 250px);
-
+    grid-template-rows: repeat(3, 1fr);
+    
 }
 
 .container_section_1{
@@ -69,8 +135,8 @@ grid-row: 2/3;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 20px;
+  margin-bottom:20px;
   
   color: rgb(255, 255, 255);
   
@@ -84,9 +150,10 @@ grid-row: 2/3;
 }
 
 .titulo{
+    display: flex;
+    font-size: 40px;
+    grid-row:0/1;
    
-    font-size: 60px;
-    margin-bottom: 5%;
 }
 
 .anio{
@@ -118,17 +185,6 @@ grid-row: 2/3;
     grid-template-rows: repeat(8,1fr);
 }
 
-
-
-
-.targetas_grid-container{
-    display: grid;
-    grid-template-columns: repeat(8,1fr);
-    grid-template-rows: repeat(4,1fr);
-    background-color: rgb(23, 23, 23);
-    
-}
-
 .sobremi_div{
     color: white;
     grid-column: 2/8;
@@ -138,13 +194,24 @@ grid-row: 2/3;
     align-items: center;
     justify-items: flex-end;
     margin: 100px;
-    
     }
     
-    .sobremi_div h2{
-        margin-top: 50px;
-    }
-    
+   
+
+.targetas_grid-container{
+     display: grid;
+     grid-template-columns: repeat(8,1fr);
+     grid-template-rows: repeat(6,1fr);
+    /*background-image: url("../img/ciudad_noche.jpg");*/
+    background-size: 100%;
+    background-size:cover;
+    background-position:center ;      
+}
+.sobremi_div {
+    margin-top: 50px;
+    color: red;  
+   
+}
 
 .targetas_flex-container{
     grid-column: 1/9;
@@ -156,50 +223,63 @@ grid-row: 2/3;
     justify-content: center;
     align-items: center;
     margin: auto;
+    
 }
 
 .targetas{
-    width: 330px;
-    height: 430px;
+    width: 230px;
+    height: 330px;
     border-radius: 8px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 2);
     overflow: hidden;
     margin: 50px;
     text-align: center;
     transition: all 0.25s;
-    background-color: black;
+    background-color: rgb(55, 55, 55);
+    opacity: 0.9;
+    
+    
+  
 }
 
 .targetas:hover{
 transform:  translateY(-15px);
-box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+box-shadow: 0 12px 16px rgba(0, 0, 0, 4);
 
 }
 
 .targetas img{
-width: 330px;
-height: 220px;
+width: 230px;
+height: 140px;
 }
 
 .targetas h4{
-    font-weight: 600;
+    font-weight: 800;
     margin-top: 25px;
     margin-bottom: 20px;
 }
 
 .targetas p{
     padding:  0 1rem;
-    font-size: 16px;
-    font-weight: 300;
+    font-size: 13px;
+    font-weight: 200;
     margin-top: 25px;
     margin-bottom: 20px;
 }
 
 .targetas a {
-    font-weight: 500;
+    font-weight: 300;
     text-decoration: none;
     color: #3498db;
     
+}
+/* login formulario */
+.formulario{
+    display: grid;
+    grid-column: 2/3;
+    display: flex;
+    align-items: center;
+    background-color: #e50f21;
 }
 
 /*-----SECTION 3-----*/
@@ -247,13 +327,79 @@ height: 220px;
 }
 
 
-/*-----ingresar.html-----*/
+/*-----crear_post-----*/
 
-.formulario{
-    color: aqua;
-    margin: 50px;
+
+
+.targetas_grid-container_post{
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(8,1fr);
+    background-color: rgb(23, 23, 23);
+    
 }
+
+.sobremi_div_post{
+    
+    color: white;
+    grid-column: 2/8;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    margin: 100px;
+    
+    
+    }
+    
+    .sobremi_div h2{
+        margin-top: 50px;
+    }
+    
+
+
 
 .form{
     margin: 40px;
 }
+
+.sobremi_div .input_gird{
+  
+    grid-column: 5/7;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    color: blue;
+}
+
+/*ver_posteo*/
+
+.posteo_grid-container{
+    background-color: rgb(68, 68, 68);
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(4,1fr);
+    align-content: flex-start;
+}
+
+.partes_flex-contaiter{
+ grid-column: 1/9;
+ grid-row: 1/5;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items:center;
+
+ 
+ 
+ background-color: #e0e0e0;
+}
+
+
+
+
+
+     

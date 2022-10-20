@@ -1,7 +1,10 @@
+from collections import UserList
 from datetime import datetime
+from distutils.command.upload import upload
 from email import generator
 from email.policy import default
 from multiprocessing import current_process
+from unittest.util import _MAX_LENGTH
 
 
 from django.db import models
@@ -14,32 +17,27 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-    
-class USUARIO (models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    apodo = models.CharField(max_length=50)
-    codigo_postal = models.CharField(max_length=50)
-    '''
-    nacionalidad= models.CharField(max_length=50)
-    genero = models.CharField(max_length=50)
-    fecha_nacimiento = datetime ()
-    edad = models.IntegerField()
-    email  = models.CharField(max_length=50)'''
+class Usuario(models.Model):
+    usuario = models.ForeignKey(User,on_delete=models.CASCADE, null =True, blank = True)
+    owner = models.IntegerField('Dueño datos',blank = True, default= 1)
+    pais = models.CharField(max_length=200,null =True, blank = True)
+    localidad = models.CharField(max_length=200,null =True, blank = True)
+    codigo_postal = models.IntegerField(null =True, blank = True)
+   
+    def __str__(self):
+     return f'usuario: {self.id}'
 
-        
-'''class USUARIO_ACADEMICO (models.Model):
-    tiene_estudio= models.CharField(max_length=255, default = "")
-    que_estudia = models.CharField(max_length=50)
-    coding = 
-   ''' 
-    
 class PostModel (models.Model):
+    
+    autor = models.ForeignKey(User,on_delete=models.CASCADE, null =True, blank = True)
+    owner = models.IntegerField('Dueño Post',blank = True, default= 1)
     titulo = models.CharField(max_length=50)
-    descripcion = RichTextField(blank=True , null=True)
-    contenido = models.TextField(max_length=500)
+    descripcion = models.CharField(max_length=200)
+    contenido = RichTextField(blank=True , null=True)
     orden= models.CharField(max_length=50)
     imagen = RichTextUploadingField(blank=True , null=True)
+    
+    
     
     def __str__(self):
         return f'titulo{self.titulo}'
@@ -47,4 +45,6 @@ class PostModel (models.Model):
 
 class Avatar(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    imagen = models.ImageField(upload_to='avatares', null=True, blank =True)
+    imagen = models.ImageField(upload_to='avatares', null=True, blank =True, default=models.URLField('DAVID_AESTETIC.png'))
+        
+   

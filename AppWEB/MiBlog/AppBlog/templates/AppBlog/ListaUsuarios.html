@@ -2,34 +2,105 @@
 {% load static %}
 
 {% block headear %}
-
-
-<ul>
-  
-    <li> <a href="{% url 'inicio' %}">Inicio</a></li> 
-    <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>    <!--Blog-->
-    <li> <a href="{% url 'lista_usuarios' %}">Datos</a></li>
-    <li> <a href="{% url 'logout' %}"> Logout </a></li> <!--Proyectos--> 
-</ul>
+<img src= "{{ imagen }}" alt="" width="150px">
+<div class="titulo"><h1> <a href="{% url 'inicio' %}">Prosophy</a></h1></div>
+<nav>
+    <ul class = "menu_horizontal">
+       
+       
+        <li> 
+            <a href="#">Cuenta</a>
+            
+            <ul class ="menu_vertical">
+              <li> <a href="{% url 'lista_usuarios' %}">Datos personales</a></li>
+              <li> <a href="{% url 'editar_perfil' %}">Datos de cuenta</a></li>
+              <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+              <li> <a href="{% url 'agregar_avatar' %}">Avatar</a></li>
+              <li> <a href="{% url 'logout' %}"> Logout </a></li>
+            </ul>   
+        </li>
+          <!--Blog-->
+          <!--Blog-->
+        
+        <li> 
+            <a href="#">Posteos</a>
+            
+            <ul class ="menu_vertical">
+                <li> <a href="{% url 'lista_post' %}">Tus posteos</a></li>
+                <li> <a href="{% url 'crear_post' %}">Crear Posteo</a></li>
+            </ul>   
+        </li>
+       
+    </ul>
+</nav>
 {% endblock %}
 
 {% block titulo %}
-<img src= "{{ imagen }}" alt="" width="150px">
-<h2>Listado de usuarios</h2>
-<a href="{% url 'buscar' %}">Buscar usuario</a>
-
- <br></br>
- {% for usu in usuarios %}
-
- 
-      <h2 >{{ usu.nombre }}</h2 >
-      <h2>{{ usu.apellido }}</h2>
-      ---
- 
- <a href="{% url 'editar_formulario' usu.id %}">Editar formulario</a>
- <a href="{% url 'eliminar_formulario' %}">Eliminar Formulario</a>
- 
- {% endfor %}
+<div class = "formulario"> 
+  <form class ="form">{% csrf_token %}
+   
+    {% for usu in datos %}
+    {% if usu.owner == user.id %}
+      <div class="form-group">
+          <label>Pais:</label>
+          {{ usu.pais }}
+      </div>
+      <div class="form-group">
+          <label>Localidad:</label>
+          {{ usu.localidad }}
+      </div>
+      <div class="form-group">
+          <label>Contraseña:</label>
+          {{ usu.codigo_postal }}
+      </div>
+      
+      <br></br>
+      <a href="{% url 'editar_formulario' usu.id %}">Editar formulario</a>
+      
+      {% endif %}
+      {% endfor %}
+  </form>
+  </div>
+  
 
 {% endblock %}
 
+<!--<form class="login-form">
+    <p class="login-text">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-lock fa-stack-1x"></i>
+      </span>
+    </p>
+    <input type="email" class="login-username" autofocus="true" required="true" placeholder="Email" />
+    <input type="password" class="login-password" required="true" placeholder="Password" />
+    <input type="submit" name="Login" value="Login" class="login-submit" />
+  </form>
+  <a href="#" class="login-forgot-pass">forgot password?</a>
+  <div class="underlay-photo"></div>
+  <div class="underlay-black"></-->
+
+    <div class = "formulario"> 
+      <form class ="form" action="{% url 'editar_perfil' %}" , method = "POST">{% csrf_token %}
+        {% for usu in datos %}
+        {% if usu.owner == user.id %}
+          <div class="form-group">
+              <label>Nombre:</label>
+              {{ usu.pais }}
+          </div>
+          <div class="form-group">
+              <label>Apellido:</label>
+              {{ usu.pais }}
+          </div>
+          <div class="form-group">
+              <label>Contraseña:</label>
+              {{ usu.pais }}
+          </div>
+          
+          <br></br>
+      
+          <button type ="submit" class="boton">Guardar cambios</button>
+          {% endif %}
+          {% endfor %}
+      </form>
+      </div>

@@ -17,7 +17,7 @@ urlpatterns = [
     path ('articulo/',articulo, name= 'articulo'),
     
    
-    path ('llenar_formulario/', formulario_usuario, name= 'llenar_formulario'),
+    path ('formulario_usuario/', formulario_usuario, name= 'formulario_usuario'),
     path ("formulario_creado/", formulario_creado, name = 'formulario_creado'),
     path ("editar_formulario/<id>", editar_formulario, name = 'editar_formulario'),
     path ("eliminar_formulario/", eliminar_formulario, name ='eliminar_formulario'),
@@ -26,16 +26,18 @@ urlpatterns = [
     path ("resultado_busqueda/",resultado_busqueda, name = "resultado_busqueda"),
     
     
-    path ("registro/", registro_request, name = 'registro'),
+    path ("registro/", register, name = 'registro'),
     path ("creado/", creado, name = 'creado'),
-    path ("logout/", LogoutView.as_view(template_name = "AppBlog/logout.html"), name = 'logout'),
+    #path ("logout/", LogoutView.as_view(template_name = "AppBlog/logout.html"), name = 'logout'),
+    path('logout/', logout_user, name='logout'),
     path ("editar_perfil/",editar_perfil, name = 'editar_perfil'),
+    path ("edit_datos_personales/",edit_datos_personales, name = 'edit_datos_personales'),
  #PKEDITOR   
     path('detalle/', detalle, name='detalle'),
     path('ckeditor/', include ('ckeditor_uploader.urls')),
     
     path ('eliminar_post/', eliminar_post, name = 'eliminar_post'),
-    path ('lista_post/', lista_post, name = 'lista_post'),
+    path ('lista_post/', lista_post,name = 'lista_post'),
     
     
     path ('crear_post/', crear_post, name ='crear_post'),
@@ -51,6 +53,7 @@ urlpatterns = [
     
     #agregar avatar
     path ('agregar_avatar/', agregar_avatar, name = 'agregar_avatar'),
+    
     
 ]+ static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)
 
