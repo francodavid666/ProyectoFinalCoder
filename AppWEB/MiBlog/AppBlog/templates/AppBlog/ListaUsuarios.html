@@ -53,6 +53,19 @@
           <label>Contraseña:</label>
           {{ usu.codigo_postal }}
       </div>
+      <div class="form-group">
+        <label>Descripcion: </label>
+        {{ usu.descripcion }}
+    </div>
+    <div class="form-group">
+      <label>Link: </label>
+      {{ usu.link }}
+  </div>
+  <div class="form-group">
+    <label>Fecha de nacimiento: </label>
+    {{ usu.fecha_nac }}
+</div>
+<a href="{% url 'eliminar_formulario' %}">Eliminar Formulario</a
       
       <br></br>
       <a href="{% url 'editar_formulario' usu.id %}">Editar formulario</a>
@@ -61,7 +74,30 @@
       {% endfor %}
   </form>
   </div>
+  <br></br>
   
+  <div class = "formulario"> 
+    <form class ="form" action="{% url 'editar_perfil' %}" , method = "POST">{% csrf_token %}
+      {% for us in usuarios %}
+      {% if us.id == user.id %}
+        <div class="form-group">
+            <label>Username:</label>
+            {{ user.username }}
+        </div>
+        <div class="form-group">
+            <label>Nombre:</label>
+            {{ user.first_name}}
+        </div>
+        <div class="form-group">
+            <label>Apellido:</label>
+            {{ user.last_name }}
+        </div>
+    
+     
+        {% endif %}
+        {% endfor %}
+    </form>
+    </div>
 
 {% endblock %}
 
@@ -86,7 +122,7 @@
         {% if usu.owner == user.id %}
           <div class="form-group">
               <label>Nombre:</label>
-              {{ usu.pais }}
+              {{ usuarios.last_name }}
           </div>
           <div class="form-group">
               <label>Apellido:</label>

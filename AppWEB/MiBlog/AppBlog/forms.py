@@ -16,7 +16,7 @@ class formulario_modelo (ModelForm):
 class Usuario_formulario (ModelForm):
     class  Meta:
         model = Usuario
-        fields = ('pais','localidad','codigo_postal')
+        fields = ('pais','localidad','codigo_postal','descripcion','link', 'fecha_nac')
   
     
 '''class Usuario_formulario (forms.Form):

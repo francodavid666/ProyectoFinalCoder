@@ -85,7 +85,6 @@ def eliminar_post_individual(request,id):
     return render (request,"AppBlog/posteos/post_eliminado.html",{'mensaje':"¡Se elimino el posteo correctamente!"})
 
 
-
 def eliminar_post(request):
     post = PostModel.objects.all()
     post.delete()
@@ -203,6 +202,10 @@ def editar_formulario(request,id):
             usuario.pais = info ["pais"] 
             usuario.localidad = info ["localidad"]    
             usuario.codigo_postal = info ["codigo_postal"] 
+            usuario.descripcion = info ["descripcion"] 
+            usuario.link = info ["link"] 
+            usuario.fecha_nac = info ["fecha_nac"] 
+            
             
             usuario.save()
             
@@ -210,13 +213,19 @@ def editar_formulario(request,id):
             return render (request,"AppBlog/ListaUsuarios.html",{"usuarios": usuarios})   
     else:
        
-        form =Usuario_formulario(initial = {"pais":usuario.pais, "localidad":usuario.localidad,"codigo_postal":usuario.codigo_postal})
+        form =Usuario_formulario(initial = {"pais":usuario.pais,
+                                            "localidad":usuario.localidad,
+                                            "codigo_postal":usuario.codigo_postal,
+                                            'descripcion':usuario.descripcion,
+                                            'link':usuario.link,
+                                            "fecha_nac":usuario.fecha_nac
+                                            })
         return render (request,"AppBlog/editar_formulario.html",{"form": form,"id": usuario.id})
      
 def eliminar_formulario(request):
     post = Usuario.objects.all()
     post.delete()
-    return render (request,"AppBlog/eliminar_formulario.html",{'post':post})
+    return render (request,"AppBlog/inicio.html",{'post':post})
     
 
 
@@ -331,7 +340,7 @@ def register (request):
  
 def logout_user (request):
     logout(request)
-    messages.success(request,("usted se aca de deslogear"))
+    messages.success(request,("usted se acaba de deslogear"))
     return redirect ("inicio")
          
     

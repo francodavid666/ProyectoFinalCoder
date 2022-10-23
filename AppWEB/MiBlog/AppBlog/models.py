@@ -23,6 +23,13 @@ class Usuario(models.Model):
     pais = models.CharField(max_length=200,null =True, blank = True)
     localidad = models.CharField(max_length=200,null =True, blank = True)
     codigo_postal = models.IntegerField(null =True, blank = True)
+    
+    descripcion = models.CharField(max_length=200,null =True, blank = True)
+    link = models.CharField(max_length=200,null =True, blank = True)
+    fecha_nac = models.DateTimeField(null =True, blank = True)
+   
+   
+
    
     def __str__(self):
      return f'usuario: {self.id}'
